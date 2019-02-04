@@ -1,0 +1,11 @@
+<ion-list>
+    <button class="item item-trns" ion-item *ngFor="let item of cats?.slice().reverse()" (click)="selectCategory(item)">
+    <ion-avatar item-left>
+      <img src="assets/imgs/love2.png" alt="img">
+    </ion-avatar>
+    {{ item.name }}
+    <ng-container *ngIf="(msgs | categoryfilter:{categorykey:item.$key}) as result" item-end>
+    <ion-badge color="love" item-end>{{ result.length }}</ion-badge>
+  </ng-container>
+    </button>
+</ion-list>

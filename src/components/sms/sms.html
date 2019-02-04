@@ -1,0 +1,34 @@
+  <ion-grid style="height: 80%">
+    <ion-row justify-content-center align-items-center style="height: 80%">
+  <ion-card style="background-color: rgba(153, 0, 51, 0.767);
+  ">
+    <ion-card-content>
+      <ion-card-title>
+        </ion-card-title>
+      <p style="color: white;" justify-center>
+        {{ (ms | async)?.text }}
+      </p>
+    </ion-card-content>
+ <!-- Real floating action button, fixed. It will not scroll with the content -->
+  <ion-fab center style="margin-top: 58px">
+    <button ion-fab color="secondary"><ion-icon name="md-share"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="shareFacebook(ms?.value.text)"><ion-icon name="logo-facebook" color="facebook"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="bottom">
+      <button ion-fab (click)="shareTwitter(ms?.value.text)"><ion-icon name="logo-twitter" color="twitter"></ion-icon></button>
+    </ion-fab-list>
+      <ion-fab-list side="right">
+      <button ion-fab (click)="shareSms(ms?.value.text)"><ion-icon name="text" color="sms"></ion-icon></button>
+      </ion-fab-list>
+      <ion-fab-list side="left">
+        <button ion-fab (click)="shareWhatsapp(ms?.value.text)"><ion-icon name="logo-whatsapp" color="whatsapp"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-fab right bottom>
+      <button ion-fab color="danger" (click)="unfavoriteSms()" *ngIf="isFavorite"><ion-icon name="star"></ion-icon></button>
+      <button ion-fab color="primary" (click)="favoriteSms()" *ngIf="!isFavorite"><ion-icon name="star-outline"></ion-icon></button>
+    </ion-fab>
+  </ion-card>
+</ion-row>
+</ion-grid>

@@ -1,0 +1,13 @@
+<ng-container *ngFor="let msg of msgs">
+<ion-card *ngIf="msgs | orderBy : '-timestamp'" style="background-color: rgba(153, 0, 51, 0.726);
+">
+  <ion-card-content>
+      <div *ngIf="getDifferenceInDays(msg.timestamp) < 5">
+          <ion-badge style="background-color: goldenrod" float-right>New</ion-badge>
+      </div>
+      <button ion-item class="items item-trna" text-wrap (click)="selectaMessage(msg)">
+      {{ msg.text }}
+    </button>
+  </ion-card-content>
+</ion-card>
+</ng-container>
